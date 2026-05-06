@@ -1,0 +1,47 @@
+[project]
+name = "tattd-studio"
+version = "0.1.0"
+description = "Tattd Studio — multi-turn tattoo-design agent (POC)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.12"
+authors = [{ name = "Prem Naidu" }]
+
+dependencies = [
+    # LangGraph 1.0.x is pinned tight: the project ships quarterly minors with
+    # API churn (state schemas, conditional-edge signatures). Bumping the minor
+    # is treated as a half-day budgeted upgrade, not a passive transitive lift.
+    # See IMPLEMENTATION_PLAN.md → "Risks & Gotchas → LangGraph 1.0.x churn".
+    "langgraph==1.0.10",
+    "pydantic>=2.13,<3.0",
+    "qdrant-client>=1.17,<2.0",
+    "google-genai>=1.75,<2.0",
+    "httpx>=0.28,<1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.4,<9.0",
+    "deepeval>=3.9,<4.0",
+    "ruff>=0.14,<1.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.11,<0.12"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = "src"
+module-name = "tattd_studio"
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "evals"]
+python_files = ["test_*.py", "eval_*.py"]
+addopts = "-ra -q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
