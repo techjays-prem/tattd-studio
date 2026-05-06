@@ -1,0 +1,60 @@
+{"id": "v01", "prompt": "fineline minimalist mountain on inner forearm, ~3 inches", "body_part": "inner forearm", "size_inches": 3.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v02", "prompt": "small geometric triangle on outer wrist, 1.5 inches", "body_part": "outer wrist", "size_inches": 1.5, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v03", "prompt": "medium black-grey rose on outer upper arm, 4 inches", "body_part": "upper arm", "size_inches": 4.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v04", "prompt": "fineline botanical sprig on shoulder blade, 5 inches", "body_part": "shoulder blade", "size_inches": 5.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v05", "prompt": "minimalist wave on outer ankle, 2 inches", "body_part": "outer ankle", "size_inches": 2.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v06", "prompt": "traditional swallow on outer calf, 4 inches", "body_part": "outer calf", "size_inches": 4.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v07", "prompt": "small lettering script on outer ribs, 3 inches", "body_part": "outer ribs", "size_inches": 3.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v08", "prompt": "fineline sun and moon on inner bicep, 2.5 inches", "body_part": "inner bicep", "size_inches": 2.5, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v09", "prompt": "neo-traditional fox on outer thigh, 6 inches", "body_part": "outer thigh", "size_inches": 6.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v10", "prompt": "small dotwork heart on inner wrist, 1 inch", "body_part": "inner wrist", "size_inches": 1.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v11", "prompt": "medium realism eye on inner forearm, 3 inches", "body_part": "inner forearm", "size_inches": 3.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v12", "prompt": "blackwork mandala on chest, 6 inches", "body_part": "chest", "size_inches": 6.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v13", "prompt": "small star on outer ankle, 1 inch", "body_part": "outer ankle", "size_inches": 1.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v14", "prompt": "fineline crescent moon behind ear, 0.75 inches", "body_part": "behind ear", "size_inches": 0.75, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v15", "prompt": "Japanese koi sleeve outline on outer forearm, 8 inches", "body_part": "outer forearm", "size_inches": 8.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v16", "prompt": "geometric arrow on spine, 5 inches", "body_part": "spine", "size_inches": 5.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v17", "prompt": "small cluster of three dots on outer wrist, 0.5 inches", "body_part": "outer wrist", "size_inches": 0.5, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v18", "prompt": "linework wave on hip, 4 inches", "body_part": "hip", "size_inches": 4.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v19", "prompt": "medium geometric eye on outer shoulder, 3.5 inches", "body_part": "outer shoulder", "size_inches": 3.5, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v20", "prompt": "fineline initials on inner ankle, 1 inch", "body_part": "inner ankle", "size_inches": 1.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v21", "prompt": "fineline script on outer collarbone, 3 inches", "body_part": "outer collarbone", "size_inches": 3.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v22", "prompt": "blackwork crow on outer calf, 5 inches", "body_part": "outer calf", "size_inches": 5.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v23", "prompt": "fineline botanical line on outer foot, 3 inches", "body_part": "outer foot", "size_inches": 3.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v24", "prompt": "small linework bee on outer elbow, 1.5 inches", "body_part": "outer elbow", "size_inches": 1.5, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v25", "prompt": "medium illustrative bird on outer ribs, 4 inches", "body_part": "outer ribs", "size_inches": 4.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v26", "prompt": "single line drawing of a cat on inner forearm, 2 inches", "body_part": "inner forearm", "size_inches": 2.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v27", "prompt": "blackwork dagger on outer thigh, 7 inches", "body_part": "outer thigh", "size_inches": 7.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v28", "prompt": "fineline fern on shoulder blade, 6 inches", "body_part": "shoulder blade", "size_inches": 6.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v29", "prompt": "small dotwork triangle on outer arm, 2 inches", "body_part": "outer arm", "size_inches": 2.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "v30", "prompt": "neo-traditional flower on outer hip, 5 inches", "body_part": "outer hip", "size_inches": 5.0, "expected_placement_valid": true, "expected_issues": []}
+{"id": "i01", "prompt": "huge realism portrait on knuckle", "body_part": "knuckle", "size_inches": 4.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i02", "prompt": "fineline detailed portrait on palm", "body_part": "palm", "size_inches": 3.0, "expected_placement_valid": false, "expected_issues": ["fineline detail will blur on highly mobile skin"]}
+{"id": "i03", "prompt": "medium realism eye on inside of lip", "body_part": "inside of lip", "size_inches": 1.0, "expected_placement_valid": false, "expected_issues": ["lip mucosa cannot retain pigment"]}
+{"id": "i04", "prompt": "fineline detailed mandala on fingertip", "body_part": "fingertip", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["fingertip skin sheds, fineline detail fades within months"]}
+{"id": "i05", "prompt": "huge dragon sleeve fitted on inner wrist, 8 inches", "body_part": "inner wrist", "size_inches": 8.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i06", "prompt": "fineline portrait on heel", "body_part": "heel", "size_inches": 2.5, "expected_placement_valid": false, "expected_issues": ["heel skin is callused; fineline ink will not hold"]}
+{"id": "i07", "prompt": "12-inch full-color realism on outer wrist", "body_part": "outer wrist", "size_inches": 12.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i08", "prompt": "highly detailed micro-realism on eyelid", "body_part": "eyelid", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["eyelid placement is unsafe and not standard practice"]}
+{"id": "i09", "prompt": "fineline detailed portrait on sole of foot", "body_part": "sole of foot", "size_inches": 3.0, "expected_placement_valid": false, "expected_issues": ["sole skin sheds; fineline detail fades quickly"]}
+{"id": "i10", "prompt": "huge oriental dragon backpiece compressed onto outer ankle, 4 inches", "body_part": "outer ankle", "size_inches": 4.0, "expected_placement_valid": false, "expected_issues": ["composition cannot be compressed without losing detail"]}
+{"id": "i11", "prompt": "10-inch sleeve segment on inner wrist", "body_part": "inner wrist", "size_inches": 10.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i12", "prompt": "ultra-fine portrait on the gum line", "body_part": "gum line", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["gum mucosa cannot retain pigment"]}
+{"id": "i13", "prompt": "8-inch realism panel on side of neck", "body_part": "side of neck", "size_inches": 8.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i14", "prompt": "color realism portrait on top of foot, 5 inches", "body_part": "top of foot", "size_inches": 5.0, "expected_placement_valid": false, "expected_issues": ["top of foot does not hold color realism well"]}
+{"id": "i15", "prompt": "highly detailed micro-realism on inner wrist, 0.5 inches", "body_part": "inner wrist", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["detail level not compatible with size"]}
+{"id": "i16", "prompt": "fineline mandala compressed onto knuckle, 1 inch", "body_part": "knuckle", "size_inches": 1.0, "expected_placement_valid": false, "expected_issues": ["knuckle flexion will distort fineline detail"]}
+{"id": "i17", "prompt": "watercolor splash 12 inches on inner forearm", "body_part": "inner forearm", "size_inches": 12.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i18", "prompt": "high-detail realism on web between fingers", "body_part": "finger web", "size_inches": 0.75, "expected_placement_valid": false, "expected_issues": ["finger webs do not hold detail; healing is poor"]}
+{"id": "i19", "prompt": "9-inch detailed Japanese composition on outer wrist", "body_part": "outer wrist", "size_inches": 9.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i20", "prompt": "ultra-fine portrait on inner lip", "body_part": "inner lip", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["lip mucosa cannot retain pigment"]}
+{"id": "i21", "prompt": "huge sleeve composition shrunken onto inner ankle, 3 inches", "body_part": "inner ankle", "size_inches": 3.0, "expected_placement_valid": false, "expected_issues": ["composition cannot be compressed without losing detail"]}
+{"id": "i22", "prompt": "high-detail dotwork on outside of nostril", "body_part": "outside of nostril", "size_inches": 0.4, "expected_placement_valid": false, "expected_issues": ["facial cartilage placement is non-standard and unsafe"]}
+{"id": "i23", "prompt": "20-inch realism backpiece compressed onto outer thigh, 6 inches", "body_part": "outer thigh", "size_inches": 6.0, "expected_placement_valid": false, "expected_issues": ["composition cannot be compressed without losing detail"]}
+{"id": "i24", "prompt": "highly detailed micro-realism on side of nose", "body_part": "side of nose", "size_inches": 0.5, "expected_placement_valid": false, "expected_issues": ["facial placement is non-standard and unsafe"]}
+{"id": "i25", "prompt": "11-inch lettering on outer wrist", "body_part": "outer wrist", "size_inches": 11.0, "expected_placement_valid": false, "expected_issues": ["size exceeds anatomical surface area"]}
+{"id": "i26", "prompt": "ultra-fine portrait on cuticle", "body_part": "cuticle", "size_inches": 0.3, "expected_placement_valid": false, "expected_issues": ["cuticle does not hold ink"]}
+{"id": "i27", "prompt": "highly detailed full-color piece compressed onto inner wrist, 1.5 inches", "body_part": "inner wrist", "size_inches": 1.5, "expected_placement_valid": false, "expected_issues": ["detail level not compatible with size"]}
+{"id": "i28", "prompt": "fineline portrait on outside of palm crease", "body_part": "palm crease", "size_inches": 1.0, "expected_placement_valid": false, "expected_issues": ["palm crease flexion blurs fineline detail"]}
+{"id": "i29", "prompt": "high-detail color realism on heel pad", "body_part": "heel pad", "size_inches": 2.5, "expected_placement_valid": false, "expected_issues": ["heel skin is callused; color will not hold"]}
+{"id": "i30", "prompt": "highly detailed realism on knuckle, 1 inch", "body_part": "knuckle", "size_inches": 1.0, "expected_placement_valid": false, "expected_issues": ["knuckle flexion will distort the design"]}

@@ -10,9 +10,10 @@ __pycache__/
 .ruff_cache/
 .deepeval/
 
-# Eval Harness outputs (Eval Reports are committed only as `evals/results/latest.md`,
-# not the per-run scratch produced by DeepEval)
-evals/results/
+# DeepEval per-run scratch — Eval Reports themselves (`evals/results/*.md`)
+# are committed and reviewed alongside code changes.
+evals/results/*.json
+evals/results/*.tmp
 
 # Cached data downloads
 data/cache/
