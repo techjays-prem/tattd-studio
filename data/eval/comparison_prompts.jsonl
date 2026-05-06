@@ -10,3 +10,21 @@
 {"id": "cm10", "prompt": "fineline botanical sprig on shoulder blade, ~5 inches", "intent_style": "fineline", "placement": "shoulder blade"}
 {"id": "cm11", "prompt": "trash polka collage with red graphic overlays on outer ribs", "intent_style": "trash-polka", "placement": "outer ribs"}
 {"id": "cm12", "prompt": "Old English script across the collarbone reading 'memento mori'", "intent_style": "script-old-english", "placement": "collarbone"}
+{"id": "cm13", "prompt": "black-and-grey realism Sacred Heart on outer chest, religious iconography", "intent_style": "black-and-grey-realism", "placement": "outer chest"}
+{"id": "cm14", "prompt": "dotwork stippled mandala on outer thigh with sacred geometry layering", "intent_style": "dotwork", "placement": "outer thigh"}
+{"id": "cm15", "prompt": "fineline portrait of a hummingbird on inner bicep, single-needle", "intent_style": "fineline", "placement": "inner bicep"}
+{"id": "cm16", "prompt": "biomechanical dragon coiled around the outer forearm with anatomical contour", "intent_style": "biomechanical", "placement": "outer forearm"}
+{"id": "cm17", "prompt": "naturalist botanical specimen of a fern on shoulder blade", "intent_style": "naturalist-botanical", "placement": "shoulder blade"}
+{"id": "cm18", "prompt": "engraving-style etching of a stag on outer calf, parallel-hatch shading", "intent_style": "engraving", "placement": "outer calf"}
+{"id": "cm19", "prompt": "Sak Yant geometric panel with Pali script on outer shoulder", "intent_style": "sak-yant", "placement": "outer shoulder"}
+{"id": "cm20", "prompt": "Celtic interlace knotwork band wrapping the outer forearm", "intent_style": "celtic-knotwork", "placement": "outer forearm"}
+{"id": "cm21", "prompt": "small dotwork heart on inner wrist, 1 inch, micro tattoo", "intent_style": "dotwork", "placement": "inner wrist"}
+{"id": "cm22", "prompt": "ornamental filigree spine-piece running vertically along the back", "intent_style": "ornamental", "placement": "spine"}
+{"id": "cm23", "prompt": "Japanese koi with peony composition on outer thigh, traditional irezumi", "intent_style": "japanese-irezumi", "placement": "outer thigh"}
+{"id": "cm24", "prompt": "watercolor Kandinsky-influenced abstract on inner forearm", "intent_style": "watercolor", "placement": "inner forearm"}
+{"id": "cm25", "prompt": "Sailor Jerry pin-up with banner reading 'Lucky' on outer upper arm", "intent_style": "sailor-jerry-revival", "placement": "outer upper arm"}
+{"id": "cm26", "prompt": "color realism portrait of a tiger eye on outer calf, hyperreal detail", "intent_style": "color-realism", "placement": "outer calf"}
+{"id": "cm27", "prompt": "minimalist single-line drawing of a continuous wave on inner forearm", "intent_style": "single-line", "placement": "inner forearm"}
+{"id": "cm28", "prompt": "Chicano black-and-grey lowrider iconography on outer chest", "intent_style": "chicano", "placement": "outer chest"}
+{"id": "cm29", "prompt": "Norse Vegvísir compass with rune border on outer shoulder", "intent_style": "norse-runic", "placement": "outer shoulder"}
+{"id": "cm30", "prompt": "tessellation Escher-style pattern wrapping the inner thigh", "intent_style": "tessellation", "placement": "inner thigh"}
