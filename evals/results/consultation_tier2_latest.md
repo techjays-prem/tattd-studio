@@ -1,6 +1,6 @@
 # Consultation Tier 2 — Eval Report
 
-- Run: 2026-05-06T12:26:55.498975+00:00
+- Run: 2026-05-06T12:30:57.635681+00:00
 - Conversation traces: `data/eval/conversation_traces.jsonl` (8 traces)
 - Mode: ci
 

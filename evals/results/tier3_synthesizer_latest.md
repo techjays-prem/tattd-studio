@@ -1,6 +1,6 @@
 # Tier 3 Synthesizer — Eval Report
 
-- Run: 2026-05-06T12:26:55.702310+00:00
+- Run: 2026-05-06T12:30:57.845381+00:00
 - Anatomy seed Golden Set: 60 cases
 - Mode: ci
 

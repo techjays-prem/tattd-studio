@@ -1,6 +1,6 @@
 # Generation Tier 1 — Eval Report
 
-- Run: 2026-05-06T12:26:55.018162+00:00
+- Run: 2026-05-06T12:30:57.145647+00:00
 - Golden Set: `data/eval/generation_golden.jsonl` (15 cases)
 - Mode: ci
 
