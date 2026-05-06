@@ -81,7 +81,7 @@ Tiered DeepEval suite, every entry committed under `evals/results/` so reviewers
 | Quality Critic — composition / linework / balance / originality drift | T1 | [`quality_critic_latest.md`](./evals/results/quality_critic_latest.md) |
 | End-to-end Studio trace — latency + candidate / chunk counts | T2 | [`studio_traces_latest.md`](./evals/results/studio_traces_latest.md) |
 | Multimodal embedding 3-way benchmark — Gemini Embedding 2 vs `multimodalembedding@001` vs SigLIP 2 on 20-query retrieval Golden Set | T2 | [`embedding_benchmark.md`](./evals/results/embedding_benchmark.md) |
-| Comparison Matrix — FLUX.2-dev ± LoRA Artifact, FLUX.2-klein ± LoRA Artifact, Generation Client | T2 | *blocked by [#9 (HITL)](https://github.com/techjays-prem/tattd-studio/issues/9) — requires real onboarded artist permission* |
+| Comparison Matrix — FLUX.2-dev ± LoRA Artifact, FLUX.2-klein ± LoRA Artifact, Generation Client | T2 | [`comparison_matrix_latest.md`](./evals/results/comparison_matrix_latest.md) (LoRA-adapted columns deferred to [#9](https://github.com/techjays-prem/tattd-studio/issues/9) — light up automatically when `data/lora_training/artifacts.toml` carries real entries) |
 
 Default CI uses deterministic baselines (no API keys). Live thresholds activate under env-gated runs (`RUN_LIVE_*=1` + `GEMINI_API_KEY`).
 

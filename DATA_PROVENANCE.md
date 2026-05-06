@@ -101,4 +101,27 @@ The artist names are factual references to real practitioners and famous bearers
 
 Populated in [slice #9](https://github.com/techjays-prem/tattd-studio/issues/9). HITL: requires explicit permission from one onboarded artist + 25–30 of their portfolio images per the slice spec.
 
-> *To be populated in slice #9, gated on explicit onboarded-artist permission.*
+### What ships today (scaffolding only)
+
+- `infra/train_lora.yaml` — the ai-toolkit (ostris) recipe ready to run on Replicate. Uses `content_or_style: balanced` and `caption_dropout_rate: 0.05` per the implementation plan's risk note.
+- `data/lora_training/permission/README.md` — schema for the per-artist permission marker (`<artist_slug>.toml`); the permission record is a real signed PDF or equivalent.
+- `data/lora_training/artifacts.toml` — registry of trained LoRA Artifacts. Empty placeholder today; the Comparison Matrix consumes this file to know which LoRA-adapted columns to include.
+- `src/tattd_studio/lora/` — registry parser + inference path with a deterministic stub (CI) and a Replicate-backed live client.
+- Inference smoke tests at `tests/lora/test_lora_inference.py`.
+
+### What does NOT ship until a real onboarded artist consents
+
+- Any `data/lora_training/<artist_slug>/` portfolio image directory — the unsolicited POC has zero real onboarded-artist content. Synthetic substitutes would dishonor the permission discipline this artifact is built around.
+- Any populated `data/lora_training/permission/<artist_slug>.toml` record. The `permission/` directory carries only the schema README until a real artist signs.
+- Any populated rows in `data/lora_training/artifacts.toml`. A row appears only when a real LoRA Artifact has been trained on a permitted dataset.
+- `Pull request description` for slice #9 with the onboarded artist's public portfolio link and credit-required noted (per slice #9 acceptance criterion).
+
+### How to unblock
+
+When an onboarded artist consents:
+
+1. Drop their signed permission record under `data/lora_training/permission/<artist_slug>.toml` matching the schema in the README.
+2. Drop ~25–30 of their portfolio images under `data/lora_training/<artist_slug>/` with a per-image Provenance manifest.
+3. Run `infra/train_lora.yaml` against each of FLUX.2-dev and FLUX.2-klein on Replicate.
+4. Append two rows (one per base) to `data/lora_training/artifacts.toml`.
+5. The Comparison Matrix automatically picks them up — no eval-runner code changes required.

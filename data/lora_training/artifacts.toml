@@ -1,0 +1,20 @@
+# LoRA Artifact registry.
+#
+# Each entry records one trained LoRA Artifact (per onboarded artist
+# x base model). The Comparison Matrix consumes this file to know which
+# columns to populate in its 5-way comparison table.
+#
+# Empty by design until slice #9 lands a real training run. The
+# Comparison Matrix runs the Generation Client column unconditionally
+# and skips LoRA-adapted columns when no entry is present here.
+
+# Example entry shape (do not commit unless backed by a real run):
+#
+# [[artifacts]]
+# artist_slug = "kira-ink-bk"
+# base_model = "FLUX.2-dev"            # FLUX.2-dev | FLUX.2-klein
+# replicate_url = "https://replicate.com/<owner>/tattd-lora-kira-ink-bk-dev"
+# trigger_word = "tattd_kira"
+# trained_on = "2026-05-08"
+# permission_record = "permission/kira-ink-bk.toml"
+artifacts = []
