@@ -16,5 +16,22 @@ services:
       timeout: 2s
       retries: 10
 
+  studio:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: tattd-studio
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    ports:
+      - "7860:7860"
+    environment:
+      GEMINI_API_KEY: ${GEMINI_API_KEY}
+      VERTEX_PROJECT_ID: ${VERTEX_PROJECT_ID:-}
+      REPLICATE_API_TOKEN: ${REPLICATE_API_TOKEN:-}
+      HF_TOKEN: ${HF_TOKEN:-}
+      QDRANT_URL: http://qdrant:6333
+
 volumes:
   qdrant_storage:
