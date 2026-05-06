@@ -18,11 +18,13 @@ from pydantic import BaseModel, Field
 CHUNK_MARKER = "<!-- CHUNK -->"
 _FRONTMATTER_RE = re.compile(r"\A\s*---\s*\n(.*?)\n---\s*\n(.*)\Z", re.DOTALL)
 
-VALID_AREAS = frozenset({"taxonomy", "placement", "aftercare", "ip", "cultural"})
+VALID_AREAS = frozenset(
+    {"taxonomy", "placement", "aftercare", "ip", "cultural", "famous"}
+)
 
 
 class Chunk(BaseModel):
-    """A single Knowledge Corpus record + Provenance."""
+    """A single Knowledge Corpus or Famous Tattoos Corpus record + Provenance."""
 
     chunk_id: str = Field(min_length=1)
     area: str
@@ -33,12 +35,13 @@ class Chunk(BaseModel):
     capture_date: dt.date
     synthetic: bool
     permission: str = Field(min_length=1)
+    artist: str | None = None  # populated for `area: famous` records
 
     model_config = {"frozen": True}
 
     def to_payload(self) -> dict[str, Any]:
         """Serialize to a Vector Store payload dict."""
-        return {
+        payload: dict[str, Any] = {
             "chunk_id": self.chunk_id,
             "area": self.area,
             "title": self.title,
@@ -49,6 +52,9 @@ class Chunk(BaseModel):
             "synthetic": self.synthetic,
             "permission": self.permission,
         }
+        if self.artist is not None:
+            payload["artist"] = self.artist
+        return payload
 
 
 def parse_chunks_from_markdown(text: str) -> list[Chunk]:

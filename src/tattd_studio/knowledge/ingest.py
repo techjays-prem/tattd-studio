@@ -23,6 +23,7 @@ from tattd_studio.vectordb import (
 )
 
 KNOWLEDGE_CORPUS_ALIAS = "knowledge_corpus"
+FAMOUS_TATTOOS_CORPUS_ALIAS = "famous_tattoos_corpus"
 
 
 def load_chunks_from_dir(data_dir: Path) -> list[Chunk]:
