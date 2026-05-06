@@ -36,5 +36,5 @@ jobs:
       - name: Run pytest unit tests
         run: uv run pytest tests/ -v
 
-      - name: Run Eval Harness (Tier 1 + Tier 2)
-        run: uv run pytest evals/tier1 evals/tier2 -v
+      - name: Run Eval Harness (Tier 1 + Tier 2 + Tier 3)
+        run: uv run pytest evals/tier1 evals/tier2 evals/tier3 -v
