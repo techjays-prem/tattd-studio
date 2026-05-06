@@ -1,6 +1,6 @@
 # Studio End-to-End Trace — Eval Report
 
-- Run: 2026-05-06T12:14:28.531441+00:00
+- Run: 2026-05-06T12:23:07.229836+00:00
 - Mode: stubbed (deterministic embedder + fake generate_fn + fixed judge)
 
 | Metric | Value |
