@@ -1,6 +1,6 @@
 # Anatomy Critic — Eval Report
 
-- Run: 2026-05-06T11:31:24.527387+00:00
+- Run: 2026-05-06T11:42:08.300311+00:00
 - Golden Set: `data/eval/anatomy_cases.jsonl` (60 cases)
 - Judge: `heuristic-baseline-v1`
 

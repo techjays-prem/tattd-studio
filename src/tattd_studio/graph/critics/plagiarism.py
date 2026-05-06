@@ -41,13 +41,22 @@ class PlagiarismCritic:
         self,
         *,
         store: VectorStore,
-        collection: str,
+        collection: str | None = None,
+        collections: list[str] | None = None,
         embedder: TextEmbeddingClient,
         threshold: float = 0.85,
         embed_query_for: Callable[[CandidateDesign], str] | None = None,
     ) -> None:
+        if collection is not None and collections is not None:
+            raise ValueError("pass either `collection` or `collections`, not both")
+        if collection is None and not collections:
+            raise ValueError("at least one collection is required")
         self._store = store
-        self._collection = collection
+        # Slice #7 took a single ``collection``; slice #8 broadens to a
+        # list. Both signatures supported for backwards-compat.
+        self._collections: list[str] = (
+            collections if collections is not None else [collection]  # type: ignore[list-item]
+        )
         self._embedder = embedder
         self._threshold = threshold
         self._embed_query_for = embed_query_for or (lambda cd: cd.prompt)
@@ -55,26 +64,33 @@ class PlagiarismCritic:
     def check(self, candidate: CandidateDesign) -> PlagiarismCheck:
         query = self._embed_query_for(candidate)
         vec = self._embedder.embed(query)
-        hits = self._store.query_named(
-            collection=self._collection,
-            vector_name="multimodal-1024",
-            query_vector=vec[:1024],
-            limit=1,
-        )
-        if not hits:
+        # Query each configured corpus and keep the best match.
+        best_hit = None
+        best_corpus = ""
+        for coll in self._collections:
+            hits = self._store.query_named(
+                collection=coll,
+                vector_name="multimodal-1024",
+                query_vector=vec[:1024],
+                limit=1,
+            )
+            if hits and (best_hit is None or hits[0].score > best_hit.score):
+                best_hit = hits[0]
+                best_corpus = coll
+
+        if best_hit is None:
             return PlagiarismCheck(
                 flagged=False,
                 top_match_artist="",
                 top_match_similarity=0.0,
                 threshold_used=self._threshold,
-                corpus_hit=self._collection,
+                corpus_hit="",
             )
-        top = hits[0]
-        sim = max(0.0, min(1.0, top.score))
+        sim = max(0.0, min(1.0, best_hit.score))
         return PlagiarismCheck(
             flagged=sim >= self._threshold,
-            top_match_artist=top.payload.get("artist", ""),
+            top_match_artist=best_hit.payload.get("artist", ""),
             top_match_similarity=sim,
             threshold_used=self._threshold,
-            corpus_hit=self._collection,
+            corpus_hit=best_corpus,
         )
