@@ -1,0 +1,20 @@
+{"id": "r01", "query": "fineline botanical sprig on shoulder blade", "expected_artist_slugs": ["isaac-floral", "kira-fineline-bk"]}
+{"id": "r02", "query": "American Traditional pin-up with banner", "expected_artist_slugs": ["miguel-traditional-bk"]}
+{"id": "r03", "query": "Japanese koi sleeve in irezumi composition", "expected_artist_slugs": ["yuki-japanese-bk", "haruko-monmon-cat"]}
+{"id": "r04", "query": "color realism portrait of a wolf", "expected_artist_slugs": ["ana-realism-color", "amari-animal-portrait", "kale-portraiture"]}
+{"id": "r05", "query": "blackwork mandala with dotwork shading", "expected_artist_slugs": ["sara-blackwork", "lin-dotwork", "nora-mandala"]}
+{"id": "r06", "query": "geometric sacred-geometry chest piece", "expected_artist_slugs": ["alex-geometric", "lin-dotwork", "nora-mandala"]}
+{"id": "r07", "query": "watercolor splash on outer thigh", "expected_artist_slugs": ["noor-watercolor"]}
+{"id": "r08", "query": "biomechanical sleeve with anatomical contour", "expected_artist_slugs": ["rina-biomech"]}
+{"id": "r09", "query": "single-line continuous-stroke cat", "expected_artist_slugs": ["moss-single-line"]}
+{"id": "r10", "query": "micro fineline iconographic under 1 inch", "expected_artist_slugs": ["seth-micro", "kira-fineline-bk"]}
+{"id": "r11", "query": "Old English script on the collarbone", "expected_artist_slugs": ["jed-script"]}
+{"id": "r12", "query": "religious iconography in black-and-grey Chicano lineage", "expected_artist_slugs": ["rio-religious", "jorge-realism-bw"]}
+{"id": "r13", "query": "Celtic interlace knotwork forearm", "expected_artist_slugs": ["sage-celtic"]}
+{"id": "r14", "query": "Norse runic Viking-Age figural", "expected_artist_slugs": ["asta-norse"]}
+{"id": "r15", "query": "ornamental filigree bicep wrap", "expected_artist_slugs": ["ren-ornamental"]}
+{"id": "r16", "query": "trash polka collage with red overlays", "expected_artist_slugs": ["tomas-trash-polka"]}
+{"id": "r17", "query": "anime fan-art-style derivative on outer arm", "expected_artist_slugs": ["ezra-anime"]}
+{"id": "r18", "query": "graffiti wildstyle throwup on outer thigh", "expected_artist_slugs": ["luna-graffiti"]}
+{"id": "r19", "query": "engraving-style hatched naturalist plant", "expected_artist_slugs": ["ada-engraving"]}
+{"id": "r20", "query": "Sak Yant Pali script geometric panel", "expected_artist_slugs": ["tashi-tibetan", "ravi-yantra"]}

@@ -56,9 +56,25 @@ The full record list is the YAML frontmatter of each chunk inside `data/knowledg
 
 ## Artist Portfolio Index
 
-Populated in [slice #8](https://github.com/techjays-prem/tattd-studio/issues/8). 10–20 curated real onboarded-artist records + 20–30 synthetic style-coverage records. Each record will carry the standard five Provenance fields plus an `onboarded_artist_slug` linking to the human practitioner.
+Populated in [slice #8](https://github.com/techjays-prem/tattd-studio/issues/8). 35 records under `data/artists/artists.jsonl` (one JSON object per line) covering the style space exercised by the Knowledge Corpus and Famous Tattoos Corpus.
 
-> *To be populated in slice #8.*
+**Important POC posture.** The implementation plan's spec calls for 10–20 *real onboarded artists with explicit permission*. This artifact is unsolicited and the developer cannot ethically claim those permissions. **All 35 records are explicitly marked synthetic style-coverage entries** with `permission_marker: synthetic-content-tattd-studio-poc` and `synthetic: true`. Real onboarded-artist records are deferred to slice #9 (HITL) — the same gating that holds back the LoRA Artifact training set — and slice #11 (production deployment) where actual artist permission can be obtained through proper onboarding.
+
+The Plagiarism Critic and Two-Stage Matcher therefore index the *style description* of each record rather than any third-party imagery; the names are synthetic (Kira, Miguel, Yuki, …) so they cannot be misread as referring to real practitioners.
+
+| Coverage axis | Sample slugs |
+|---|---|
+| fineline / minimalist | kira-fineline-bk, seth-micro, vega-stick-poke, isaac-floral, moss-single-line |
+| traditional / neo-traditional | miguel-traditional-bk, yuki-japanese-bk |
+| realism (color & b&g) | ana-realism-color, jorge-realism-bw, kale-portraiture, amari-animal-portrait |
+| blackwork / dotwork / geometric | sara-blackwork, lin-dotwork, alex-geometric, nora-mandala, iris-pointillism |
+| watercolor / illustrative | noor-watercolor, rae-illustrative, rin-sketchy |
+| trash polka / biomechanical | tomas-trash-polka, rina-biomech |
+| script / ornamental | jed-script, ren-ornamental, ada-engraving |
+| cultural / religious | rio-religious, sage-celtic, asta-norse, ravi-yantra, tashi-tibetan, elif-tessellation, haruko-monmon-cat |
+| trend / contemporary | luna-graffiti, ezra-anime, remy-cyber, kai-hand-poke |
+
+The full per-record Provenance lives in `data/artists/artists.jsonl`.
 
 ---
 

@@ -98,6 +98,13 @@ def test_studio_graph_runs_consultation_generation_anatomy_to_completion() -> No
             "knowledge_chunks": [],
             "candidate_designs": [],
             "anatomy_checks": [],
+            "plagiarism_checks": [],
+            "style_checks": [],
+            "quality_checks": [],
+            "routing_decisions": [],
+            "refinement_attempts": 0,
+            "chosen_design_index": 0,
+            "matched_artists": [],
             "metadata": {},
         }
     )
@@ -128,6 +135,13 @@ def test_studio_graph_does_not_carry_image_bytes_in_state() -> None:
             "knowledge_chunks": [],
             "candidate_designs": [],
             "anatomy_checks": [],
+            "plagiarism_checks": [],
+            "style_checks": [],
+            "quality_checks": [],
+            "routing_decisions": [],
+            "refinement_attempts": 0,
+            "chosen_design_index": 0,
+            "matched_artists": [],
             "metadata": {},
         }
     )

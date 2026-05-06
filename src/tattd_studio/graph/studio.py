@@ -42,6 +42,7 @@ from tattd_studio.graph.routing import (
 )
 from tattd_studio.graph.state import StudioState
 from tattd_studio.knowledge import KnowledgeRetriever
+from tattd_studio.matching import TwoStageMatcher
 from tattd_studio.models import Intent
 
 
@@ -54,7 +55,9 @@ def build_studio_graph(
     style_critic: StyleCritic | None = None,
     quality_critic: QualityCritic | None = None,
     thresholds: RoutingThresholds | None = None,
+    matcher: TwoStageMatcher | None = None,
     knowledge_top_k: int = 5,
+    matched_artists_k: int = 5,
     refine_intent: Callable[[Intent, list[str]], Intent] | None = None,
 ) -> Any:
     """Compile and return the Studio graph.
@@ -154,6 +157,15 @@ def build_studio_graph(
             "refinement_attempts": state.get("refinement_attempts", 0) + 1,
         }
 
+    def matcher_node(state: StudioState) -> dict[str, Any]:
+        if matcher is None or not state["candidate_designs"]:
+            return {"matched_artists": []}
+        idx = state.get("chosen_design_index", 0)
+        idx = max(0, min(idx, len(state["candidate_designs"]) - 1))
+        chosen = state["candidate_designs"][idx]
+        ranked = matcher.find_artists(chosen, k=matched_artists_k)
+        return {"matched_artists": ranked}
+
     def trace_end(state: StudioState) -> dict[str, Any]:
         meta = dict(state.get("metadata") or {})
         started = meta.pop("_started_at", time.monotonic())
@@ -161,6 +173,7 @@ def build_studio_graph(
         meta["candidate_count"] = len(state["candidate_designs"])
         meta["chunk_count"] = len(state["knowledge_chunks"])
         meta["refinement_attempts"] = state.get("refinement_attempts", 0)
+        meta["matched_artist_count"] = len(state.get("matched_artists") or [])
         return {"metadata": meta}
 
     builder: StateGraph = StateGraph(StudioState)
@@ -173,6 +186,7 @@ def build_studio_graph(
     builder.add_node("quality_critic", quality_node)
     builder.add_node("routing", routing_node)
     builder.add_node("refine_intent", refine_intent_node)
+    builder.add_node("two_stage_matcher", matcher_node)
     builder.add_node("trace_end", trace_end)
 
     builder.add_edge(START, "trace_start")
@@ -188,16 +202,17 @@ def build_studio_graph(
     builder.add_edge("plagiarism_critic", "routing")
     builder.add_edge("style_critic", "routing")
     builder.add_edge("quality_critic", "routing")
-    # Routing decides Refinement vs surface.
+    # Routing decides Refinement vs Two-Stage Matcher.
     builder.add_conditional_edges(
         "routing", refinement_branch, {
             "refine_intent": "refine_intent",
-            "trace_end": "trace_end",
+            "trace_end": "two_stage_matcher",
         }
     )
     # Refinement loops back into Generation directly (Consultation context
     # carries; we only re-generate against the refined Intent).
     builder.add_edge("refine_intent", "generation")
+    builder.add_edge("two_stage_matcher", "trace_end")
     builder.add_edge("trace_end", END)
 
     return builder.compile()

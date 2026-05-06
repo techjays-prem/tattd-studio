@@ -20,6 +20,7 @@ from tattd_studio.graph.critics import (
 )
 from tattd_studio.graph.routing import RoutingDecision
 from tattd_studio.knowledge import RetrievedChunk
+from tattd_studio.matching import RankedArtist
 from tattd_studio.models import CandidateDesign, Intent
 
 
@@ -39,5 +40,8 @@ class StudioState(TypedDict):
 
     routing_decisions: list[RoutingDecision]
     refinement_attempts: int
+
+    chosen_design_index: int  # which Candidate Design the user selected
+    matched_artists: list[RankedArtist]
 
     metadata: dict[str, Any]
