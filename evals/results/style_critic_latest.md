@@ -1,6 +1,6 @@
 # Style Critic — Eval Report
 
-- Run: 2026-05-06T12:30:57.379505+00:00
+- Run: 2026-05-06T12:40:58.998934+00:00
 - Golden Set: inline (15 cases)
 - alignment_min threshold: 0.55
 - Embedder: DeterministicTextEmbeddingClient(dim=1024)

@@ -1,6 +1,6 @@
 # Drift Detection — Eval Report
 
-- Run: 2026-05-06T12:30:57.844162+00:00
+- Run: 2026-05-06T12:40:59.465291+00:00
 - Baselines file: `evals/results/history/baselines.toml`
 - Metrics checked: 6
 - Regressions: 0
