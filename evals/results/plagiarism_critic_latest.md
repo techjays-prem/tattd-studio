@@ -1,6 +1,6 @@
 # Plagiarism Critic — Eval Report
 
-- Run: 2026-05-06T11:47:38.817439+00:00
+- Run: 2026-05-06T11:56:47.322856+00:00
 - Golden Set: `data/eval/plagiarism_pairs.jsonl` (20 pairs)
 - Threshold (max_similarity): 0.85
 - Embedder: DeterministicTextEmbeddingClient(dim=1024)

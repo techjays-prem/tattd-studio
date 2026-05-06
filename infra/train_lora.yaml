@@ -1,0 +1,93 @@
+# ai-toolkit (ostris) configuration for the LoRA Artifact training run.
+#
+# Per IMPLEMENTATION_PLAN.md: one LoRA per FLUX.2 base (dev and klein),
+# trained on a single onboarded artist's portfolio with explicit signed
+# permission. This config is the recipe; running it requires:
+#
+# 1. Replicate API token (`REPLICATE_API_TOKEN` in `.env`)
+# 2. Hugging Face token with FLUX.2 access (`HF_TOKEN` in `.env`)
+# 3. ~25-30 portfolio images of the onboarded artist under
+#    `data/lora_training/<artist_slug>/`, each with per-image Provenance
+#    and a permission marker under `data/lora_training/permission/`.
+#
+# Sane defaults follow the implementation plan's risk note:
+# `content_or_style: balanced` and `caption_dropout_rate: 0.05`.
+
+job: extension
+config:
+  # Two parallel runs — one per FLUX.2 base. The runner picks one row at
+  # a time when invoked; both produce LoRA artifacts the Comparison
+  # Matrix consumes.
+  name: tattd-lora-{ARTIST_SLUG}-{BASE_TAG}
+  process:
+    - type: sd_trainer
+      training_folder: output
+      device: cuda:0
+      trigger_word: "{ARTIST_TRIGGER}"
+      network:
+        type: lora
+        linear: 16
+        linear_alpha: 16
+      save:
+        dtype: float16
+        save_every: 250
+        max_step_saves_to_keep: 4
+      datasets:
+        - folder_path: "data/lora_training/{ARTIST_SLUG}"
+          caption_ext: txt
+          caption_dropout_rate: 0.05
+          shuffle_tokens: false
+          cache_latents_to_disk: true
+          resolution: [512, 768, 1024]
+      train:
+        batch_size: 1
+        steps: 1500
+        gradient_accumulation_steps: 1
+        train_unet: true
+        train_text_encoder: false
+        gradient_checkpointing: true
+        noise_scheduler: flowmatch
+        optimizer: adamw8bit
+        lr: 0.0001
+        ema_config:
+          use_ema: true
+          ema_decay: 0.99
+        dtype: bf16
+      model:
+        # `{BASE_MODEL_ID}` is `black-forest-labs/FLUX.2-dev` or
+        # `black-forest-labs/FLUX.2-klein` — substituted at run time
+        # by the Replicate orchestrator below.
+        name_or_path: "{BASE_MODEL_ID}"
+        is_flux: true
+        quantize: true
+      sample:
+        sampler: flowmatch
+        sample_every: 250
+        width: 1024
+        height: 1024
+        prompts:
+          - "{ARTIST_TRIGGER} fineline minimalist mountain on inner forearm"
+          - "{ARTIST_TRIGGER} botanical sprig on shoulder blade"
+          - "{ARTIST_TRIGGER} small geometric sigil on outer wrist"
+        neg: "blurry, lowres, bad anatomy"
+        seed: 42
+        walk_seed: false
+        guidance_scale: 4.0
+        sample_steps: 28
+
+# Per-artist tuning notes:
+# - `content_or_style: balanced` is the recommended starting point;
+#   bias toward "style" if early epochs over-fit the artist's specific
+#   subjects rather than their stroke language.
+# - `trigger_word` should be a unique pseudo-token (e.g., `tattd_kira`)
+#   so the artist's style can be invoked without colliding with
+#   pre-training tokens.
+# - Two retrains are typically required to land defensible style
+#   fidelity per the implementation plan's risk note.
+
+orchestrator:
+  platform: replicate
+  # Reference, not invocation. The actual `replicate.run(...)` call
+  # lives in the runner script under `src/tattd_studio/lora/train.py`
+  # and is gated on `REPLICATE_API_TOKEN`.
+  endpoint: "ostris/ai-toolkit"
