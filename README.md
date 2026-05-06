@@ -79,6 +79,7 @@ Tiered DeepEval suite, every entry committed under `evals/results/` so reviewers
 | Plagiarism Critic — near-dup AUC on 20 pairs | T1 | [`plagiarism_critic_latest.md`](./evals/results/plagiarism_critic_latest.md) |
 | Style Critic — Intent → Candidate Design alignment on 15 pairs | T1 | [`style_critic_latest.md`](./evals/results/style_critic_latest.md) |
 | Quality Critic — composition / linework / balance / originality drift | T1 | [`quality_critic_latest.md`](./evals/results/quality_critic_latest.md) |
+| Knowledge Retriever — recall@k / MRR / area-recall + DeepEval `ContextualRelevancy / ContextualRecall / ContextualPrecision` (live only) | T1 | [`retrieval_tier1_latest.md`](./evals/results/retrieval_tier1_latest.md) |
 | End-to-end Studio trace — latency + candidate / chunk counts | T2 | [`studio_traces_latest.md`](./evals/results/studio_traces_latest.md) |
 | Multimodal embedding 3-way benchmark — Gemini Embedding 2 vs `multimodalembedding@001` vs SigLIP 2 on 20-query retrieval Golden Set | T2 | [`embedding_benchmark.md`](./evals/results/embedding_benchmark.md) |
 | Comparison Matrix — FLUX.2-dev ± LoRA Artifact, FLUX.2-klein ± LoRA Artifact, Generation Client (+ optional OpenAI Image 2 sixth column) | T2 | [`comparison_matrix.md`](./evals/results/comparison_matrix.md) (30 prompts; LoRA-adapted columns deferred to [#9](https://github.com/techjays-prem/tattd-studio/issues/9) — light up automatically when `data/lora_training/artifacts.toml` carries real entries; `OpenAI Image 2` column activated by `OPENAI_IMAGE_2_API_KEY`) |
