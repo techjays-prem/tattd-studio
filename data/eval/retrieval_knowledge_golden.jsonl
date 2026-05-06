@@ -1,0 +1,20 @@
+{"id": "kr01", "query": "Saniderm second-skin aftercare healing", "expected_chunk_ids": ["aftercare-saniderm"], "expected_area": "aftercare"}
+{"id": "kr02", "query": "Mike Tyson facial moko copyright case", "expected_chunk_ids": ["ip-tattoo-as-copyright"], "expected_area": "ip"}
+{"id": "kr03", "query": "right of publicity celebrity portrait", "expected_chunk_ids": ["ip-portrait-likeness"], "expected_area": "ip"}
+{"id": "kr04", "query": "Maori ta moko cultural appropriation kirituhi", "expected_chunk_ids": ["taxonomy-maori-tamoko", "cultural-maori-tamoko-restriction"], "expected_area": "cultural"}
+{"id": "kr05", "query": "fineline minimalist single-needle aesthetic", "expected_chunk_ids": ["taxonomy-fineline"], "expected_area": "taxonomy"}
+{"id": "kr06", "query": "Japanese irezumi yakuza onsen social context", "expected_chunk_ids": ["cultural-japanese-irezumi"], "expected_area": "cultural"}
+{"id": "kr07", "query": "inner forearm placement holds detail well", "expected_chunk_ids": ["placement-inner-forearm"], "expected_area": "placement"}
+{"id": "kr08", "query": "knuckle tattoos flex distortion", "expected_chunk_ids": ["placement-knuckles"], "expected_area": "placement"}
+{"id": "kr09", "query": "swastika sacred symbol vs Nazi appropriation", "expected_chunk_ids": ["cultural-swastika-context"], "expected_area": "cultural"}
+{"id": "kr10", "query": "trash polka style red ink black-and-grey collage", "expected_chunk_ids": ["taxonomy-trash-polka"], "expected_area": "taxonomy"}
+{"id": "kr11", "query": "Sak Yant Thai monks ajarn blessing", "expected_chunk_ids": ["cultural-sak-yant-monastic", "taxonomy-sak-yant"], "expected_area": "cultural"}
+{"id": "kr12", "query": "moisturizing aftercare versus dry heal", "expected_chunk_ids": ["aftercare-moist-heal", "aftercare-dry-heal"], "expected_area": "aftercare"}
+{"id": "kr13", "query": "infection signs warmth pus expanding redness", "expected_chunk_ids": ["aftercare-infection-signs"], "expected_area": "aftercare"}
+{"id": "kr14", "query": "trademark logo personal versus commercial flash", "expected_chunk_ids": ["ip-trademark-logo"], "expected_area": "ip"}
+{"id": "kr15", "query": "Chicano black-and-grey lowrider Old English", "expected_chunk_ids": ["taxonomy-chicano"], "expected_area": "taxonomy"}
+{"id": "kr16", "query": "blackwork solid black large-scale geometric", "expected_chunk_ids": ["taxonomy-blackwork"], "expected_area": "taxonomy"}
+{"id": "kr17", "query": "outer thigh largest panel canvas placement", "expected_chunk_ids": ["placement-outer-thigh"], "expected_area": "placement"}
+{"id": "kr18", "query": "watercolor outline-free painterly wash", "expected_chunk_ids": ["taxonomy-watercolor"], "expected_area": "taxonomy"}
+{"id": "kr19", "query": "translation accuracy kanji native speaker review", "expected_chunk_ids": ["ip-translation-disclaimer", "cultural-language-script-validation", "taxonomy-chinese-calligraphy"], "expected_area": "cultural"}
+{"id": "kr20", "query": "minor consent state law parental notarized", "expected_chunk_ids": ["ip-minor-consent"], "expected_area": "ip"}
