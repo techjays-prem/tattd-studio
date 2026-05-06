@@ -1,0 +1,23 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+.deepeval/
+
+# Eval Harness outputs (Eval Reports are committed only as `evals/results/latest.md`,
+# not the per-run scratch produced by DeepEval)
+evals/results/
+
+# Cached data downloads
+data/cache/
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
