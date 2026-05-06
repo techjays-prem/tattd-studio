@@ -21,3 +21,6 @@ data/cache/
 .idea/
 .vscode/
 .DS_Store
+
+# User research vault — not part of the shipped POC
+tattd-vault/
