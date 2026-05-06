@@ -1,0 +1,32 @@
+# Calibrated thresholds for the Eval Harness.
+#
+# Routing reads these at runtime; CI reads these in Tier 1 evals to fail on
+# regression. Bump a threshold only after a defensible re-calibration run
+# whose Eval Report is committed under `evals/results/`.
+
+[anatomy_critic]
+# Positive class for precision/recall is "invalid placement": the Critic's
+# job is to catch invalid placements so Routing can trigger Refinement.
+# False negatives (missed invalid placements) are worse than false
+# positives (extra Refinement loops), so recall is held tighter than
+# precision.
+positive_class = "invalid"
+precision_min = 0.70
+recall_min = 0.85
+confidence_floor = 0.50
+
+[plagiarism_critic]
+# Tightened in slice #7 once near-dup pairs are calibrated.
+positive_class = "near_duplicate"
+precision_min = 0.0
+recall_min = 0.0
+
+[style_critic]
+positive_class = "well_aligned"
+precision_min = 0.0
+recall_min = 0.0
+
+[quality_critic]
+positive_class = "high_quality"
+precision_min = 0.0
+recall_min = 0.0
