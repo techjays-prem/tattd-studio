@@ -6,18 +6,38 @@ This repository is the unsolicited proof: a runnable Studio — a multi-turn tat
 
 ## Run in 5 minutes
 
-> _Placeholder — populated as the repo + CI skeleton lands (issue #1)._
->
-> Planned shape:
->
-> ```bash
-> git clone https://github.com/<user>/tattd-studio.git
-> cd tattd-studio
-> cp .env.example .env   # fill: GEMINI_API_KEY, VERTEX_PROJECT_ID, REPLICATE_API_TOKEN, HF_TOKEN
-> uv sync
-> python -m tattd_studio.main
-> # Gradio UI at http://localhost:7860
-> ```
+```bash
+git clone https://github.com/techjays-prem/tattd-studio.git
+cd tattd-studio
+cp .env.example .env   # fill: GEMINI_API_KEY (required), VERTEX_PROJECT_ID, REPLICATE_API_TOKEN, HF_TOKEN
+uv sync --extra ui --extra dev
+python -m tattd_studio.main
+# Gradio UI at http://localhost:7860
+```
+
+What you can do in this slice (#6):
+
+- Type a tattoo description ("fineline minimalist mountain on inner forearm, ~3 inches")
+- The Studio runs Consultation → Generation → Anatomy Critic → end
+- Surfaced Candidate Designs render in a grid, each with the Anatomy Critic verdict overlaid
+- The four-Critic Routing + Refinement loop arrives in slice #7
+
+Run the test suite (no API keys required):
+
+```bash
+uv run ruff check .
+uv run pytest tests/ evals/tier1 evals/tier2
+```
+
+Run the live integration tests (consumes API quota):
+
+```bash
+RUN_LIVE_GENERATION_TESTS=1 \
+RUN_LIVE_ANATOMY_EVAL=1 \
+RUN_LIVE_STUDIO_TESTS=1 \
+GEMINI_API_KEY=... \
+uv run pytest
+```
 
 ## Documents
 
