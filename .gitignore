@@ -25,3 +25,4 @@ data/cache/
 
 # User research vault — not part of the shipped POC
 tattd-vault/
+.claude/
