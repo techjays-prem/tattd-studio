@@ -14,12 +14,18 @@ from tattd_studio.generation.client import (
     build_prompt,
 )
 from tattd_studio.generation.gemini import build_gemini_generate_fn
+from tattd_studio.generation.originality_metric import (
+    OriginalityMetric,
+    faithfulness_score,
+)
 
 __all__ = [
     "PROMPT_TEMPLATE_VERSION",
     "GenerationClient",
     "GenerationError",
+    "OriginalityMetric",
     "TransientGenerationError",
     "build_gemini_generate_fn",
     "build_prompt",
+    "faithfulness_score",
 ]
