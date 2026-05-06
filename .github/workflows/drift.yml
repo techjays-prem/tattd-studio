@@ -1,0 +1,51 @@
+name: Drift Detection (scheduled)
+
+# Per the implementation plan's Tier 3 Eval Surface stretch: a
+# scheduled CI run that compares each Eval Report's current numbers
+# against the committed baselines under
+# `evals/results/history/baselines.toml`. Catches silent decay of
+# upstream provider quality even between PRs.
+
+on:
+  schedule:
+    # 09:00 UTC daily
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: drift-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  drift:
+    name: Drift detection
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "0.11.9"
+          enable-cache: true
+
+      - name: Set up Python 3.12
+        run: uv python install 3.12
+
+      - name: Sync dependencies
+        run: uv sync --extra dev
+
+      - name: Re-run all evals to refresh report numbers
+        run: uv run pytest evals/tier1 evals/tier2 -v
+
+      - name: Run drift gate
+        run: uv run pytest evals/tier3/test_drift.py -v
+
+      - name: Upload drift report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drift-report
+          path: evals/results/drift_latest.md

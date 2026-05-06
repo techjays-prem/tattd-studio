@@ -1,6 +1,6 @@
 # Multimodal Embedding 3-Way Benchmark — Eval Report
 
-- Run: 2026-05-06T12:26:55.691444+00:00
+- Run: 2026-05-06T12:30:57.832774+00:00
 - Golden Set: `data/eval/retrieval_golden.jsonl` (20 queries)
 - Mode: deterministic baseline (CI)
 

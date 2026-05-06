@@ -86,6 +86,7 @@ Tiered DeepEval suite, every entry committed under `evals/results/` so reviewers
 | Multimodal embedding 3-way benchmark — Gemini Embedding 2 vs `multimodalembedding@001` vs SigLIP 2 on 20-query retrieval Golden Set | T2 | [`embedding_benchmark.md`](./evals/results/embedding_benchmark.md) |
 | Comparison Matrix — FLUX.2-dev ± LoRA Artifact, FLUX.2-klein ± LoRA Artifact, Generation Client (+ optional OpenAI Image 2 sixth column) | T2 | [`comparison_matrix.md`](./evals/results/comparison_matrix.md) (30 prompts; LoRA-adapted columns deferred to [#9](https://github.com/techjays-prem/tattd-studio/issues/9) — light up automatically when `data/lora_training/artifacts.toml` carries real entries; `OpenAI Image 2` column activated by `OPENAI_IMAGE_2_API_KEY`) |
 | Synthetic test-set generator — permutation augmenter (CI) + DeepEval Synthesizer (live; `RUN_LIVE_SYNTHESIZER=1`) | T3 stretch | [`tier3_synthesizer_latest.md`](./evals/results/tier3_synthesizer_latest.md) |
+| Drift detection — committed baselines under `evals/results/history/baselines.toml` + daily scheduled CI gate at `.github/workflows/drift.yml` | T3 stretch | [`drift_latest.md`](./evals/results/drift_latest.md) |
 
 Default CI uses deterministic baselines (no API keys). Live thresholds activate under env-gated runs (`RUN_LIVE_*=1` + `GEMINI_API_KEY`).
 

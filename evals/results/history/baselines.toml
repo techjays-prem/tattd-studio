@@ -1,0 +1,55 @@
+# Drift detection baselines.
+#
+# Each `[[metric]]` row is a (eval_path, metric_label) pair plus the
+# baseline value we expect, a tolerance for allowed drift, and the
+# direction in which the metric should move (higher_is_better or
+# lower_is_better). The Tier 3 drift eval at `evals/tier3/test_drift.py`
+# parses the live Eval Reports under `evals/results/`, compares each
+# baseline, and fails CI on regressions exceeding tolerance.
+#
+# Baselines are committed alongside the Eval Reports they reference.
+# To bump a baseline, update the value here in the same PR that produces
+# the new Eval Report — the PR description should explain why the bar
+# moved.
+
+[[metric]]
+eval_path = "evals/results/anatomy_critic_latest.md"
+metric_label = "Precision"
+baseline_value = 0.967
+tolerance = 0.05
+direction = "higher_is_better"
+
+[[metric]]
+eval_path = "evals/results/anatomy_critic_latest.md"
+metric_label = "Recall"
+baseline_value = 0.967
+tolerance = 0.05
+direction = "higher_is_better"
+
+[[metric]]
+eval_path = "evals/results/quality_critic_latest.md"
+metric_label = "Precision"
+baseline_value = 1.000
+tolerance = 0.05
+direction = "higher_is_better"
+
+[[metric]]
+eval_path = "evals/results/quality_critic_latest.md"
+metric_label = "Recall"
+baseline_value = 1.000
+tolerance = 0.05
+direction = "higher_is_better"
+
+[[metric]]
+eval_path = "evals/results/consultation_tier2_latest.md"
+metric_label = "Intent-substring coverage"
+baseline_value = 1.000
+tolerance = 0.10
+direction = "higher_is_better"
+
+[[metric]]
+eval_path = "evals/results/consultation_tier2_latest.md"
+metric_label = "Grounding-area match"
+baseline_value = 0.938
+tolerance = 0.10
+direction = "higher_is_better"
