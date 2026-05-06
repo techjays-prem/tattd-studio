@@ -1,4 +1,4 @@
-# PRD — Tattd Concierge POC
+# PRD — Tattd Studio POC
 
 > Author: Prem Nath · Date: 2026-05-06 · Status: Draft for implementation
 
@@ -12,9 +12,9 @@ The developer has limited time (a 2-4 month solo timeline), no inside access to 
 
 ## Solution
 
-Build the **Tattd Concierge** — a runnable POC of the AI core that powers Tattd's user journey, delivered as a local-runnable repository with deployment artifacts, comprehensive evaluation suite, and documentation framing the engineering decisions.
+Build the **Tattd Studio** — a runnable POC of the AI core that powers Tattd's user journey, delivered as a local-runnable repository with deployment artifacts, comprehensive evaluation suite, and documentation framing the engineering decisions.
 
-The Concierge is a multi-turn agent that:
+The Studio is a multi-turn agent that:
 
 1. **Consults** with a prospective tattoo client to refine their design intent (style, body location, meaning, color, size), grounded in retrieved knowledge from a curated tattoo corpus (style taxonomy, anatomy/placement, aftercare, IP best-practices, cultural considerations).
 2. **Generates** candidate tattoo designs using Tattd's production model (Gemini Nano Banana 2 / Pro), with a parallel comparison evaluation against open-weights alternatives (FLUX.2-dev and FLUX.2-klein, with and without a per-artist style LoRA).

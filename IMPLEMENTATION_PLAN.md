@@ -1,6 +1,6 @@
-# Implementation Plan — Tattd Concierge
+# Implementation Plan — Tattd Studio
 
-> **Companion to:** [PRD.md](./PRD.md) (product requirement) and [CONTEXT.md](./CONTEXT.md) (vocabulary). This document is the architectural / decision-log spec; the GitHub issues at [#1–#11](https://github.com/techjays-prem/tattd-concierge/issues) are the executable tracer bullets.
+> **Companion to:** [PRD.md](./PRD.md) (product requirement) and [CONTEXT.md](./CONTEXT.md) (vocabulary). This document is the architectural / decision-log spec; the GitHub issues at [#1–#11](https://github.com/techjays-prem/tattd-studio/issues) are the executable tracer bullets.
 
 ---
 
@@ -101,7 +101,7 @@ The **LoRA Artifact** lives outside this loop — it appears only in the **Compa
 ## Repo Structure
 
 ```
-tattd-concierge/
+tattd-studio/
 ├── README.md                    # Hero narrative + "Run in 5 minutes" + eval results table
 ├── ARCHITECTURE.md              # Final deeper reasoning (issue #11)
 ├── DATA_PROVENANCE.md           # Aggregated per-record source attribution (built across #3, #7, #8, #9, finalized #11)
@@ -113,11 +113,11 @@ tattd-concierge/
 ├── Dockerfile
 ├── modal.py                     # Modal deploy config
 ├── .github/workflows/ci.yml     # pytest + Eval Harness on every push
-├── src/tattd_concierge/
+├── src/tattd_studio/
 │   ├── __init__.py
 │   ├── main.py                  # Gradio entrypoint
 │   ├── graph/                   # LangGraph state machine
-│   │   ├── state.py             # ConciergeState TypedDict
+│   │   ├── state.py             # StudioState TypedDict
 │   │   ├── consultation.py      # Consultation node + Knowledge Retriever wiring
 │   │   ├── generation.py        # Generation Client invocation
 │   │   ├── critics/
@@ -159,7 +159,7 @@ tattd-concierge/
 │   ├── calibrated_thresholds.toml
 │   └── results/                 # Committed Eval Reports (markdown)
 ├── infra/
-│   ├── docker-compose.yml       # Qdrant + Concierge for local dev
+│   ├── docker-compose.yml       # Qdrant + Studio for local dev
 │   └── train_lora.yaml          # ai-toolkit config for the LoRA Artifact
 └── tests/                       # Unit tests separate from evals
 ```
@@ -172,17 +172,17 @@ Tracer bullets filed as GitHub issues. Slice number == issue number.
 
 | # | Title | Type | Blocked by |
 |---|-------|------|------------|
-| [#1](https://github.com/techjays-prem/tattd-concierge/issues/1) | Repo + CI skeleton + Eval Harness shell | AFK | — |
-| [#2](https://github.com/techjays-prem/tattd-concierge/issues/2) | Vector Store wrapper | AFK | #1 |
-| [#3](https://github.com/techjays-prem/tattd-concierge/issues/3) | Knowledge Corpus ingest + Knowledge Retriever happy path | AFK | #2 |
-| [#4](https://github.com/techjays-prem/tattd-concierge/issues/4) | Anatomy Critic end-to-end | AFK | #1 |
-| [#5](https://github.com/techjays-prem/tattd-concierge/issues/5) | Generation Client wrapper | AFK | #1 |
-| [#6](https://github.com/techjays-prem/tattd-concierge/issues/6) | Minimal LangGraph Concierge: Consultation → Generation → Anatomy Critic → end | AFK | #3, #4, #5 |
-| [#7](https://github.com/techjays-prem/tattd-concierge/issues/7) | Plagiarism Critic + Style Critic + Quality Critic + Routing | AFK | #6 |
-| [#8](https://github.com/techjays-prem/tattd-concierge/issues/8) | Artist Portfolio Index + Two-Stage Matcher + multimodal embedding benchmark | AFK | #2, #7 |
-| [#9](https://github.com/techjays-prem/tattd-concierge/issues/9) | LoRA Artifact training run on Replicate | HITL | #1 |
-| [#10](https://github.com/techjays-prem/tattd-concierge/issues/10) | Comparison Matrix | AFK | #5, #9 |
-| [#11](https://github.com/techjays-prem/tattd-concierge/issues/11) | Deploy artifacts + documentation polish | AFK | #6, #7, #8, #10 |
+| [#1](https://github.com/techjays-prem/tattd-studio/issues/1) | Repo + CI skeleton + Eval Harness shell | AFK | — |
+| [#2](https://github.com/techjays-prem/tattd-studio/issues/2) | Vector Store wrapper | AFK | #1 |
+| [#3](https://github.com/techjays-prem/tattd-studio/issues/3) | Knowledge Corpus ingest + Knowledge Retriever happy path | AFK | #2 |
+| [#4](https://github.com/techjays-prem/tattd-studio/issues/4) | Anatomy Critic end-to-end | AFK | #1 |
+| [#5](https://github.com/techjays-prem/tattd-studio/issues/5) | Generation Client wrapper | AFK | #1 |
+| [#6](https://github.com/techjays-prem/tattd-studio/issues/6) | Minimal LangGraph Studio: Consultation → Generation → Anatomy Critic → end | AFK | #3, #4, #5 |
+| [#7](https://github.com/techjays-prem/tattd-studio/issues/7) | Plagiarism Critic + Style Critic + Quality Critic + Routing | AFK | #6 |
+| [#8](https://github.com/techjays-prem/tattd-studio/issues/8) | Artist Portfolio Index + Two-Stage Matcher + multimodal embedding benchmark | AFK | #2, #7 |
+| [#9](https://github.com/techjays-prem/tattd-studio/issues/9) | LoRA Artifact training run on Replicate | HITL | #1 |
+| [#10](https://github.com/techjays-prem/tattd-studio/issues/10) | Comparison Matrix | AFK | #5, #9 |
+| [#11](https://github.com/techjays-prem/tattd-studio/issues/11) | Deploy artifacts + documentation polish | AFK | #6, #7, #8, #10 |
 
 **Parallelizable paths:**
 
@@ -206,7 +206,7 @@ Tracer bullets filed as GitHub issues. Slice number == issue number.
 | multimodal embedding benchmark | T2 | 3-way: Gemini Embedding 2 vs `multimodalembedding@001` vs SigLIP 2 on retrieval Golden Set | recall@k, MRR, NDCG |
 | Comparison Matrix | T2 | 5-way (or 6-way): FLUX.2-dev ± LoRA Artifact, FLUX.2-klein ± LoRA Artifact, Generation Client, optional OpenAI Image 2 | FID + CLIP score + `GEval` + style-adherence-via-multimodal-embedding-cosine |
 | Consultation (multi-turn) | T2 | quality, faithfulness, knowledge retention | `AnswerRelevancy`, `Faithfulness`, `ConversationRelevancy`, `KnowledgeRetention` |
-| End-to-end Concierge | T2 | goal completion, latency, cost-per-session | trace evaluation |
+| End-to-end Studio | T2 | goal completion, latency, cost-per-session | trace evaluation |
 | Synthetic test-set generator | T3 (stretch) | golden set expansion | DeepEval Synthesizer |
 | Drift detection | T3 (stretch) | regression over time | scheduled CI |
 | **CI integration** | required | pytest + Eval Harness on every push | GitHub Actions |
@@ -217,7 +217,7 @@ Tracer bullets filed as GitHub issues. Slice number == issue number.
 
 After issue #11 lands, the system passes the following:
 
-1. **Local startup.** `git clone` → `cp .env.example .env` → fill keys → `uv sync` → `python -m tattd_concierge.main` → Gradio at `localhost:7860` shows chat.
+1. **Local startup.** `git clone` → `cp .env.example .env` → fill keys → `uv sync` → `python -m tattd_studio.main` → Gradio at `localhost:7860` shows chat.
 2. **Happy path.** Type *"I want a fineline minimalist mountain on my inner forearm, ~3 inches"* → Consultation refines → 4 Candidate Designs returned → 4 Critics each return Pydantic verdicts visible in UI → choose one → top 5 onboarded artists shown with name + portfolio link.
 3. **Critic failure path.** Request something that should fail anatomy (e.g., *"huge realism portrait on knuckle"*) → Anatomy Critic flags → Routing triggers Refinement → re-generates with adjusted prompt.
 4. **Plagiarism path.** Generate a deliberately near-duplicate of an indexed artist (test fixture) → Plagiarism Critic flags with `top_match_artist` and `top_match_similarity` populated → Routing diversifies and re-generates once → second flag escalates.
