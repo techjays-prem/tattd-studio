@@ -1,14 +1,14 @@
-# Tattd Concierge — Project Context
+# Tattd Studio — Project Context
 
-The shared vocabulary for the Tattd Concierge POC: a runnable artifact that demonstrates a multi-turn tattoo-design agent built on Tattd's production stack (Gemini Nano Banana 2 / Pro, Gemini Embedding 2) with rigorous DeepEval coverage. This document is the source of truth for terms used in code, issues, PRs, commits, and evaluation reports — every other doc defers to it.
+The shared vocabulary for the Tattd Studio POC: a runnable artifact that demonstrates a multi-turn tattoo-design agent built on Tattd's production stack (Gemini Nano Banana 2 / Pro, Gemini Embedding 2) with rigorous DeepEval coverage. This document is the source of truth for terms used in code, issues, PRs, commits, and evaluation reports — every other doc defers to it.
 
 ## Language
 
 ### Agent surface
 
-**Concierge**:
+**Studio**:
 The end-to-end agent that conducts one tattoo-design session from intent elicitation through artist matching.
-_Avoid_: bot, assistant, agent (too generic), Tattd assistant.
+_Avoid_: bot, assistant, agent (too generic), Tattd assistant, Concierge (deprecated — earlier name).
 
 **Consultation**:
 The multi-turn dialogue stage in which **Intent** is elicited from the human client and grounded against the **Knowledge Corpus**.
@@ -118,7 +118,7 @@ _Avoid_: sources file, credits, attributions doc.
 
 ## Relationships
 
-- A **Concierge** session begins with a **Consultation** that produces exactly one **Intent** at a time (refined across turns).
+- A **Studio** session begins with a **Consultation** that produces exactly one **Intent** at a time (refined across turns).
 - An **Intent** is consumed by the **Generation Client**, which produces N **Candidate Designs** per invocation.
 - Each **Candidate Design** is evaluated by exactly four **Critics** in parallel: **Anatomy**, **Plagiarism**, **Style**, **Quality**.
 - **Routing** consumes all four **Critic** verdicts and chooses **Refinement**, user-facing surfacing, or escalation.
