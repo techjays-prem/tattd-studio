@@ -6,13 +6,18 @@ from tattd_studio.knowledge.embedding import (
     TextEmbeddingClient,
     build_gemini_text_embedding_client,
 )
-from tattd_studio.knowledge.ingest import KNOWLEDGE_CORPUS_ALIAS, ingest_corpus
+from tattd_studio.knowledge.ingest import (
+    FAMOUS_TATTOOS_CORPUS_ALIAS,
+    KNOWLEDGE_CORPUS_ALIAS,
+    ingest_corpus,
+)
 from tattd_studio.knowledge.retriever import (
     KnowledgeRetriever,
     RetrievedChunk,
 )
 
 __all__ = [
+    "FAMOUS_TATTOOS_CORPUS_ALIAS",
     "KNOWLEDGE_CORPUS_ALIAS",
     "Chunk",
     "DeterministicTextEmbeddingClient",

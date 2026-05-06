@@ -1,4 +1,4 @@
-# Calibrated thresholds for the Eval Harness.
+# Calibrated thresholds for the Eval Harness and Routing.
 #
 # Routing reads these at runtime; CI reads these in Tier 1 evals to fail on
 # regression. Bump a threshold only after a defensible re-calibration run
@@ -16,17 +16,34 @@ recall_min = 0.85
 confidence_floor = 0.50
 
 [plagiarism_critic]
-# Tightened in slice #7 once near-dup pairs are calibrated.
+# Cosine-similarity ceiling above which a Candidate Design is treated as
+# a near-duplicate of an indexed reference. Calibrated against the
+# Plagiarism Golden Set (`data/eval/plagiarism_pairs.jsonl`).
+#
+# CI-baseline precision/recall floors are 0.0 because the default eval
+# runs against a deterministic hash embedder that has no semantic
+# signal — the harness reports actual numbers in the Eval Report and the
+# wiring is verified, but threshold gating activates only under live
+# Gemini Embedding 2 runs. Live target precision/recall: 0.70 / 0.70.
 positive_class = "near_duplicate"
 precision_min = 0.0
 recall_min = 0.0
+max_similarity = 0.85
+live_precision_min = 0.70
+live_recall_min = 0.70
 
 [style_critic]
+# Minimum Intent → Candidate Design alignment for "well aligned" status.
+# Below this, Routing flags style and triggers Refinement.
 positive_class = "well_aligned"
 precision_min = 0.0
 recall_min = 0.0
+alignment_min = 0.55
 
 [quality_critic]
+# Average of the four sub-scores (composition, linework, balance,
+# originality). Below this, Routing flags quality.
 positive_class = "high_quality"
 precision_min = 0.0
 recall_min = 0.0
+aggregate_min = 0.55

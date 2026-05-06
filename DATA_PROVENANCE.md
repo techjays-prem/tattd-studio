@@ -64,9 +64,20 @@ Populated in [slice #8](https://github.com/techjays-prem/tattd-studio/issues/8).
 
 ## Famous Tattoos Corpus
 
-Populated in [slice #7](https://github.com/techjays-prem/tattd-studio/issues/7) as the secondary Plagiarism Critic reference. ~50 iconic and celebrity tattoos.
+Populated in [slice #7](https://github.com/techjays-prem/tattd-studio/issues/7) as the secondary Plagiarism Critic reference. 50 iconic and celebrity tattoo records under `data/famous_tattoos/famous.md`, each chunk separated by `<!-- CHUNK -->` and carrying the same Provenance frontmatter as Knowledge Corpus chunks plus an `artist` field that the Plagiarism Critic surfaces in `top_match_artist`.
 
-> *To be populated in slice #7.*
+Aggregate Provenance: all 50 records are AI-authored descriptive entries about real-world tattoos and practitioners (Mike Tyson facial moko, Rihanna falconry glove, Sailor Jerry flash, Horiyoshi III, Don Ed Hardy, Scott Campbell, Bang Bang, Dr. Woo, Yomico Moreno, Carlos Torres, …). The `source_url` field uses the `https://www.tattd-studio.example/famous/<slug>` placeholder pattern to indicate the chunk is part of this artifact's own descriptive surface, not a re-publication of any third-party text. All records carry `synthetic: true` and `permission: synthetic-content-tattd-studio-poc`.
+
+The artist names are factual references to real practitioners and famous bearers — used in the descriptive text the way a journalistic style guide would name them. No third-party imagery is ingested; the Plagiarism Critic indexes the textual descriptions for cosine-similarity matching on prompt content.
+
+| chunk_id (sample) | artist | source_url pattern |
+|---|---|---|
+| famous-mike-tyson-facial-moko | S. Victor Whitmill | https://www.tattd-studio.example/famous/tyson-facial-moko |
+| famous-rihanna-falconry-glove | Bang Bang | https://www.tattd-studio.example/famous/rihanna-falconry |
+| famous-angelina-jolie-bengal-tiger | Sompong Kanphai | https://www.tattd-studio.example/famous/jolie-tiger |
+| famous-sailor-jerry-traditional-flash-1 | Norman "Sailor Jerry" Collins | https://www.tattd-studio.example/famous/sj-death-before-dishonor |
+| famous-horiyoshi-iii-bodysuit | Horiyoshi III | https://www.tattd-studio.example/famous/horiyoshi-iii-bodysuit |
+| (… 45 more; full per-record Provenance lives in `data/famous_tattoos/famous.md` frontmatter) | | |
 
 ---
 

@@ -11,7 +11,14 @@ from __future__ import annotations
 
 from typing import Any, TypedDict
 
-from tattd_studio.graph.critics import AnatomyCheck, PlacementContext
+from tattd_studio.graph.critics import (
+    AnatomyCheck,
+    PlacementContext,
+    PlagiarismCheck,
+    QualityScore,
+    StyleCoherence,
+)
+from tattd_studio.graph.routing import RoutingDecision
 from tattd_studio.knowledge import RetrievedChunk
 from tattd_studio.models import CandidateDesign, Intent
 
@@ -26,5 +33,11 @@ class StudioState(TypedDict):
     knowledge_chunks: list[RetrievedChunk]
     candidate_designs: list[CandidateDesign]
     anatomy_checks: list[AnatomyCheck]
+    plagiarism_checks: list[PlagiarismCheck]
+    style_checks: list[StyleCoherence]
+    quality_checks: list[QualityScore]
+
+    routing_decisions: list[RoutingDecision]
+    refinement_attempts: int
 
     metadata: dict[str, Any]
