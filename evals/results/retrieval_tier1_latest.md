@@ -1,6 +1,6 @@
 # Knowledge Retriever Tier 1 — Eval Report
 
-- Run: 2026-05-06T12:23:06.761244+00:00
+- Run: 2026-05-06T12:26:55.238883+00:00
 - Golden Set: `data/eval/retrieval_knowledge_golden.jsonl` (20 queries)
 - Mode: ci
 - Embedder: DeterministicTextEmbeddingClient(dim=1024)

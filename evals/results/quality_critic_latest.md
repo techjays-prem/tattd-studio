@@ -1,6 +1,6 @@
 # Quality Critic — Eval Report
 
-- Run: 2026-05-06T12:23:06.548555+00:00
+- Run: 2026-05-06T12:26:55.027885+00:00
 - Golden Set: inline (15 cases)
 - Judge: fixture (deterministic, round-trips Golden values)
 - aggregate_min threshold: 0.55

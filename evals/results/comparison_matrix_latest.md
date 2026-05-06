@@ -1,6 +1,6 @@
 # Comparison Matrix — Eval Report
 
-- Run: 2026-05-06T12:23:06.805900+00:00
+- Run: 2026-05-06T12:26:55.282529+00:00
 - Shared prompt set: `data/eval/comparison_prompts.jsonl` (30 prompts)
 - Mode: deterministic baseline (CI)
 - LoRA Artifacts registered: 0
