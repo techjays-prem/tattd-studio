@@ -111,8 +111,41 @@ Per the PRD:
 - Watermark detection / perceptual-hash exact-match plagiarism beyond embedding similarity
 - Live hosted demo, video walkthrough, outreach — developer's responsibility, not engineering scope
 
+## Operations
+
+### Qdrant snapshot drill
+
+Per IMPLEMENTATION_PLAN.md → Risks & Gotchas, every Vector Store collection has snapshot config from day one and a runnable restore procedure:
+
+```bash
+# Local dev: bring up Qdrant + the Studio.
+GEMINI_API_KEY=... docker compose -f infra/docker-compose.yml up
+
+# Take a snapshot of the Knowledge Corpus collection.
+./infra/scripts/snapshot.sh take knowledge_corpus
+
+# List existing snapshots.
+./infra/scripts/snapshot.sh list knowledge_corpus
+
+# Restore from a previously taken snapshot.
+./infra/scripts/snapshot.sh restore knowledge_corpus <snapshot-name>
+```
+
+Snapshots persist under `QDRANT__STORAGE__SNAPSHOTS_PATH` (defaults to `/qdrant/storage/snapshots` in the bundled compose stack, mounted to the `qdrant_storage` volume).
+
+### Slice #9 HITL handoff helper
+
+When you onboard a real artist for the LoRA Artifact training run, validate the permission marker before opening a PR:
+
+```bash
+python infra/scripts/validate_permission.py data/lora_training/permission/<artist_slug>.toml
+```
+
+The validator checks every required field per the schema in `data/lora_training/permission/README.md`, the `scope` and `record_method` enum constraints, and the spec target of 25–30 training images.
+
 ## Documents
 
+- [CHANGELOG.md](./CHANGELOG.md) — what shipped per slice
 - [PRD.md](./PRD.md) — product requirement
 - [CONTEXT.md](./CONTEXT.md) — project glossary; vocabulary used in code, issues, PRs, and commits
 - [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) — architectural / decision-log spec
